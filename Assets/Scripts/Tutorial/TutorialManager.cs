@@ -7,6 +7,11 @@ public class TutorialManager : MonoBehaviour
     [Header("Testing")]
     public Light environmentLight;
     public TutorialVoiceManager voiceManager;
+    public GameObject[] activities;
+
+    public GameObject canvas;
+    public List<GameObject> slides = new List<GameObject>();
+    public int current = 0;
     private void Awake()
     {
         if (Instance == null)
@@ -23,12 +28,10 @@ public class TutorialManager : MonoBehaviour
     {
         ResetSlides();
         ColorUtility.TryParseHtmlString("#FFF4D6", out Color warmColor);
-        environmentLight.color = warmColor;
+        environmentLight.color = warmColor;       
     }
 
-    public GameObject canvas;
-    public List<GameObject> slides = new List<GameObject>();
-    public int current = 0;
+  
 
     private void OnValidate()
     {
@@ -62,15 +65,19 @@ public class TutorialManager : MonoBehaviour
         slides[0].SetActive(true);
         current = 0;
 
+        foreach (var activities in activities)
+        {
+            activities.SetActive(false);
+        }
     }
 
     [ContextMenu("Change the next slide")]
     public void ChangeNextSlide()
     {
         if (current != slides.Count - 1) {
-            slides[current].gameObject.SetActive(false);
+            slides[current].SetActive(false);
 
-            slides[current + 1].gameObject.SetActive(true);
+            slides[current + 1].SetActive(true);
             current++;
 
             if (voiceManager.audiosource.isPlaying)
@@ -83,8 +90,14 @@ public class TutorialManager : MonoBehaviour
         else
         {
             ResetSlides();
-            current = 0;
-        }        
+        }     
+        
+
+        // Scene 6
+
+        
+        environmentLight.intensity = current == 5 ? 0.25f : 1f;
+
     }
 
 

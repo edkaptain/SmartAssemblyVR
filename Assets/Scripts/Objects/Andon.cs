@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Andon : MonoBehaviour
 {
+
+    [Header("Andon Settings")]
+    [SerializeField] private AndonLight[] m_Light;
     public enum LightColor
     {
         green, yellow, red
@@ -15,9 +18,7 @@ public class Andon : MonoBehaviour
         public Light light;
         public Material material;
         public LightColor color;
-    }
-
-    
+    }    
 
     [ContextMenu("Turn Red On")]
     public void TurnRedOn()
@@ -44,8 +45,6 @@ public class Andon : MonoBehaviour
         }
     }
 
-    [Header("Andon Settings")]
-    [SerializeField] private AndonLight[] m_Light;
 
     private void Reset()
     {
@@ -75,10 +74,10 @@ public class Andon : MonoBehaviour
         }
         else if(light == LightColor.yellow)
         {
-            value = status ? 1f : 60f / 255f;
-            color.r = 255f;
-            color.g = 255f;
-            color.b = value;
+            //value = status ? 1f : 60f / 255f;
+            color.r = value;
+            color.g = value;
+            color.b = 0f;
 
         }
 
@@ -114,7 +113,6 @@ public class Andon : MonoBehaviour
 
     private void Buzzer(bool status)
     {
-
         if (status) AudioManager.Instance.Buzzer();
     }
 

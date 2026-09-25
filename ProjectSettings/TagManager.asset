@@ -33,6 +33,7 @@ TagManager:
   - QDSUIToggleCheckboxRadio
   - QDSUILineDrawing
   - QDSUIToggleThumbnail
+  - Table
   layers:
   - Default
   - TransparentFX
@@ -44,8 +45,8 @@ TagManager:
   - Overlay UI
   - 
   - 
-  - 
-  - 
+  - Character
+  - MirroredCharacter
   - 
   - 
   - 

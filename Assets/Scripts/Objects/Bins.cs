@@ -25,6 +25,11 @@ public class Bins : MonoBehaviour
     [Header("Probability")]
     [SerializeField, UnityEngine.Range(0f, 1f)] private float defectChance = 0.25f;
 
+    [Header("Interactable")]
+    [SerializeField] private GameObject interactable;
+    private Rigidbody rb;
+    private bool isActivated = false;
+
     /// <summary>
     /// Se ejecuta automáticamente al agregar el componente o al presionar
     /// "Reset" en el inspector. Llena la lista a partir del padre.
@@ -35,7 +40,26 @@ public class Bins : MonoBehaviour
     }
     private void Start()
     {
+        rb = GetComponent<Rigidbody>();
         FillListFromParent();
+    }
+    private void Update()
+    {
+        if(isActivated) return;
+
+        if (parentObj.transform.childCount == 0)
+        {
+            ActivateObject();
+            enabled = false;
+        }
+    }
+
+    private void ActivateObject()
+    {
+        isActivated = true;
+        interactable.SetActive (true);
+        rb.isKinematic = false;
+        rb.useGravity = true;
     }
 
     /// <summary>
@@ -209,5 +233,8 @@ public class Bins : MonoBehaviour
             }
         }
     }
+
+
+    // Testing, to move bins by hand
 
 }

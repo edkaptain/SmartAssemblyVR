@@ -1,10 +1,13 @@
+using System;
 using UnityEngine;
 
+/// <summary>
+/// This class enables the generation of new drills attached to the main support
+/// </summary>
 public class DrillGenerator : MonoBehaviour
 {
     [SerializeField] private GameObject currentDrill;
-    [SerializeField] private GameObject drillPefab;
-
+    [SerializeField] private GameObject drillPrefab;
     // Singlenton
     public static DrillGenerator Instance;
 
@@ -19,14 +22,11 @@ public class DrillGenerator : MonoBehaviour
         Instance = this;
     }
 
-    public void DetachCurrentDrill()
+    [ContextMenu("Generate New Drill")]
+    public void GenerateNewDrill()
     {
         currentDrill = null;
-        currentDrill = InstantiateNewDrill();
+        currentDrill = Instantiate(drillPrefab, transform.position, transform.rotation, transform);
     }
 
-    private GameObject InstantiateNewDrill()
-    {
-        return Instantiate(drillPefab, transform.position, transform.rotation, transform);
-    }
 }

@@ -112,7 +112,7 @@ MonoBehaviour:
   img: {fileID: 1377395460, guid: 0d8adf9f13766264ca20bec94e458be7, type: 3}
   isSnapped: 0
   isSelected: 0
-  objectType: 10
+  objectType: 11
   currentTarget: {fileID: 0}
   vibrationTime: 0.2
 --- !u!54 &1712266469873339448
@@ -298,7 +298,6 @@ MonoBehaviour:
   _data: {fileID: 0}
   _pointableElement: {fileID: 7469223720926528513}
   _rigidbody: {fileID: 1712266469873339448}
-  _physicsGrabbable: {fileID: 0}
   _resetGrabOnGrabsUpdated: 1
   _scoringModifier:
     _positionRotationWeight: 0.8
@@ -343,4 +342,3 @@ MonoBehaviour:
   _useClosestPointAsGrabSource: 0
   _releaseDistance: 0
   _resetGrabOnGrabsUpdated: 1
-  _physicsGrabbable: {fileID: 0}

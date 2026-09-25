@@ -2,10 +2,7 @@ using UnityEngine;
 /// <summary>
 /// Crea una lista de objetos ya definidos:)
 /// </summary>
-public enum SnapItemType
-{
-    Default, Battery, Gearbox, Chuck, ElectricMotor, Trigger, RearBody, FrontBody, LED, Screw, Complete_Drill, drill, OrangeBox
-}
+
 public class SnapManager : MonoBehaviour
 {
     public static SnapManager Instance;
@@ -42,13 +39,12 @@ public class SnapManager : MonoBehaviour
         target.UpdateMeshRenderer(false);
         target.SetObject(snapObject);
 
-        // Testing
-
+        // Testing if the object is the drill object
         Transform parentTransform = target.transform.parent;
 
         if (parentTransform != null)
         {
-            DrillAssembly parent = parentTransform.GetComponent<DrillAssembly>();
+            DrillObject parent = parentTransform.GetComponent<DrillObject>();
 
             if (parent != null)
             {
@@ -58,6 +54,8 @@ public class SnapManager : MonoBehaviour
 
         UpdateChild(true, snapObject, target);
     }
+
+
 
     public void TryUnsnap(SnapObject snapObject, SnapTarget target)
     {
@@ -69,14 +67,12 @@ public class SnapManager : MonoBehaviour
         target.UpdateMeshRenderer(true);
         snapObject.Unsnap();
 
-        //Testing
-
-        // Testing
+        // Testing if the object is the drill object
         Transform parentTransform = target.transform.parent;
 
         if (parentTransform != null)
         {
-            DrillAssembly parent = parentTransform.GetComponent<DrillAssembly>();
+            DrillObject parent = parentTransform.GetComponent<DrillObject>();
 
             if (parent != null)
             {

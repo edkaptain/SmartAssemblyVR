@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8275624937545638220}
   m_Layer: 0
   m_Name: Battery (Ghost)
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -42,7 +42,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3628539360532617847}
-  m_Mesh: {fileID: -2159965483007997719, guid: 29025d07a08b7fb4a86442bbca6bd2e0, type: 3}
+  m_Mesh: {fileID: -2159965483007997719, guid: bed4fd579f14cd84ebdb62e5efd07a92, type: 3}
 --- !u!23 &5897855206483242377
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -106,10 +106,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45ec0ddad719d3d4db2902898a1f7061, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SnapTarget
-  acceptedType: 0
-  isOccupied: 0
+  acceptedType: 1
   snappedObject: {fileID: 0}
+  isOccupied: 0
+  lockSnap: 0
   snapPoint: {fileID: 342798186314451949}
+  onAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!65 &8275624937545638220
 BoxCollider:
   m_ObjectHideFlags: 0

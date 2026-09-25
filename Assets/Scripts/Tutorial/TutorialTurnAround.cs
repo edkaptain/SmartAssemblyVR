@@ -1,6 +1,5 @@
-using NUnit.Framework;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class TutorialTurnAround : MonoBehaviour
 {
@@ -8,11 +7,18 @@ public class TutorialTurnAround : MonoBehaviour
     public int points;
     public GameObject btn;
     public GameObject player;
+    public GameObject pointer;
 
     private void OnValidate()
     {
         CollectVectors();
     }
+
+    private void Start()
+    {
+        pointer.SetActive(true);
+    }
+
     [ContextMenu("Collect vectors")]
     private void CollectVectors()
     {
@@ -32,8 +38,9 @@ public class TutorialTurnAround : MonoBehaviour
     {
         points++;
 
-        if(points >= vectors.Count)
+        if (points >= vectors.Count)
         {
+            pointer.SetActive(false);
             btn.SetActive(true);
             AudioManager.Instance.Sucess();
             Debug.LogWarning("This part was completed");

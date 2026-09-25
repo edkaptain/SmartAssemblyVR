@@ -6,8 +6,8 @@ public class SnapObject : MonoBehaviour
     #region ===== Inspector References ======
     
     [Header("Properties")]
-    public bool isDefective;
     public Sprite img;
+    public bool isDefective;
     public bool isSnapped;
     public bool isSelected;
 
@@ -23,9 +23,9 @@ public class SnapObject : MonoBehaviour
     {
         if (isSnapped && isSelected == false)
         {
-            Transform point = currentTarget.snapPoint != null ? currentTarget.snapPoint : currentTarget.transform;
-            transform.SetPositionAndRotation(point.position, point.rotation);
-
+            //Transform point = currentTarget.snapPoint != null ? currentTarget.snapPoint : currentTarget.transform;
+            //transform.SetPositionAndRotation(point.position, point.rotation);
+            transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
            
         }
     }

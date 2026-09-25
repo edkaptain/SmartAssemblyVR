@@ -1,6 +1,8 @@
 using Meta.WitAi;
+using NUnit.Framework;
 using Oculus.VoiceSDK.UX;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class AudioManager : MonoBehaviour
 {
@@ -15,6 +17,8 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip success;
     // Singlenton
     public static AudioManager Instance;
+
+    public List<AudioClip> audioClips = new List<AudioClip>();
 
     private void Reset()
     {
@@ -34,10 +38,9 @@ public class AudioManager : MonoBehaviour
 
     public void Click()
     {
-        if(audioSource.isPlaying == false)
-        {
+        
             audioSource.PlayOneShot(assemblyAttach);
-        }
+        
     }
 
     public void SystemNotification(bool Start)
@@ -71,4 +74,12 @@ public class AudioManager : MonoBehaviour
     {
         audioSource.PlayOneShot(success);
     }
+
+    public void PlayAudioList(int num)
+    {
+        if (audioClips.Count == 0) return;
+
+        audioSource.PlayOneShot(audioClips[num]);
+    }
+
 }

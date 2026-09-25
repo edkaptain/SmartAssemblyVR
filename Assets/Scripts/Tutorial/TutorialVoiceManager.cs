@@ -1,6 +1,8 @@
 using System.Collections;
 using UnityEngine;
-
+/// <summary>
+/// This script contains the necesary components to play voice audios, they are made with AI and python.
+/// </summary>
 public class TutorialVoiceManager : MonoBehaviour
 {
     public AudioSource audiosource;

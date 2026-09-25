@@ -7,8 +7,9 @@ public class SnapTarget : MonoBehaviour
 
     [Header("Target Settings")]
     public SnapItemType acceptedType;
-    public bool isOccupied;
     public SnapObject snappedObject;
+    public bool isOccupied;
+    [Tooltip("Cannot move the item once is placed")]
     public bool lockSnap;
 
     [Header("Snap Point")]
